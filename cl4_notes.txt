@@ -1,0 +1,146 @@
+1. MONGODB
+- NOSQL DB
+- schema less. there is no strict rules so as to what type of format on storage
+- stores data in a type of JSON format called BSON
+- a record in mongodb = document. it compose of key-value pairs
+
+- Document ==> key-value pair format to store the data
+- Collection ==> to store collection of documents like Table
+
+
+COMMANDS
+1. use dbname - to change or create database
+
+2. Creating collection
+  a. db.createCollection("collection_name")
+  b. db.collection_name.insertOne(object) -> object = JS object. if no collection, creates one and also insert
+
+3. Inserting
+  a. db.collection.insertOne({}) - insert single record
+  b. db.collection.insertMany([{}, {}]) - insert multiple records
+
+4. Retrieving
+  a. 
+  db.collection.find(query, projection)
+  eg. .find({name:"John"}, {name:1, age:1}) ---> retrieve all documents where name = John. Now only include the name and age fields from all the retrieved documents
+
+  b. db.collection.find({}, {name:1, age:1}) ---> get only name and age from all docs
+
+5. Updating
+  a. db.collection.updateOne(filter, update, options)
+  eg. db.posts.updateOne( { title: "Post Title 1" }, { $set: { likes: 2 } } )
+  we can also set {upsert : true}
+
+  b. updateMany() - to update many records. 
+  we can use $gt, $gte, $inc, $dec, etc
+
+6. Deletion
+  a. deleteOne(filter) - delete single doc
+  b. deleteMany(filter) - delete many doc
+
+
+
+The following operators can be used in queries to compare values:
+$eq: Values are equal
+$ne: Values are not equal
+$gt: Value is greater than another value
+$gte: Value is greater than or equal to another value
+$lt: Value is less than another value
+$lte: Value is less than or equal to another value
+$in: Value is matched within an array
+Logical
+
+The following operators can logically compare multiple queries
+$and: Returns documents where both queries match
+$or: Returns documents where either query matches
+$nor: Returns documents where both queries fail to match
+$not: Returns documents where the query does not match
+
+we can use $set operator to set values
+
+
+AGGREGATE PIPELINES
+- allow to group, sort, perform calc and much more
+- can have more than one stages
+- for processing and transforming the data
+
+Some common stages in an aggregation pipeline include:
+$match (filtering)
+$group (grouping)
+$project (transforming)
+$sort (sorting)
+$limit (limiting results)
+
+.help ----> to get help on commands
+
+
+
+
+
+2. MAP REDUCE
+  a. get the content
+  b. store content into a file
+  c. then take number of chunks and then read the file and split it into chunks, return these list of chunks. take entire content divide by number of chunks we get chunk_size. so now create a list for each of the chunk
+  d. now open a pool with no. processes = no. chunks, and call the mapping function with the chunks
+  e. then we get the mapped_results, now we call the reducer function with the mapped_results
+  f. and print the word and count 
+
+
+
+
+3.
+
+
+
+
+
+
+4. Student Grade Map Reduce
+- take records in the input in the format - id subject marks
+- keep on appending record into a list
+- when empty line inserted break
+- then pass the lines to the map phase - here we store the (student_id, marks) into the mapping and then return the mapping
+- then pass this list to reducer
+- in the reducer declare result array and 3 variables - current_stud_id, total_score, subject_count
+- then iterate on the mapping list
+- keep on adding the marks and increase subject count until the current_stud_id is different from previous one - calculate avg marks, get the grade and append to the result
+- also at the end of loop --> we need to process the last record so calculate avg and also the grade and store it 
+- and return the result
+
+
+
+5. Titanic
+- get the dataset
+- load it
+- get the records for males that died and gender = male
+- then take the mean for the age of all deceased males
+- now get the deceased females records
+- and apply value_counts on the Pclass - to get count as per passenger class
+- and return avg_age and the female_passenger result
+
+
+
+
+9. Classification
+- load iris data, train_test_split, scaler, logistic, accuracy_score, classfication_report
+- load data, split into train-test
+- scale the data
+- create logistic regression
+- fit on train data
+- get results again on train and test data
+- print accuracy for train + test
+- classificaiton report for test data
+
+
+
+
+
+10. Clustering
+- load iris data, Kmeans, matplotlib
+- now load dataset, separate the data nad the target
+- kmeans - use 3 clusters as 3 types of clusters
+- kmeans.fit(X)
+- now get the centroids and the labels. kmeans.cluster_centers_ and .labels_
+- now plot - first 2 features
+- now plot - centroids using 2 features
+- add title, xlabel, ylabel, show()

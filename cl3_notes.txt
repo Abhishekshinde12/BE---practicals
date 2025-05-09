@@ -1,0 +1,72 @@
+1. RPC
+- protocol allow to invoke a procedure (function) on another computer/server
+- allow executing a function on remote server as if it were local
+- based on client server model
+- client sends service and the server provides it
+- client send an int. request is sent over network to server using RPC. server calculates factorial. server returns the result. client receives an d prints result
+
+
+
+
+2. RMI
+- allow an object running in one JVM to invoke methods on an object running on another JVM
+- typically on different physical machines
+- object oriented and Java based
+- defines a remote interface. implement a remote object on server that defines the method. start the RMI registry and bind the object. client looks up remote object using registry. client calls the function
+- In RMI the actual object is transferred from the server to the client
+- Unlike RPC where parameters are transferred from client to server
+
+RUNNING THE CODE
+  a. python -m Pyro4.naming - running the pyro4 sensor
+  b. then run the server.py
+  c. then run the client.py
+
+
+
+
+3. FUZZY SETS
+- normal set := element either belongs or not belong
+- it's a set without sharp boundary
+- allows partial membership of an element belonging to the set. this helps to model partial truth
+- value between (0,1) (not a memeber, full member)
+- membership function defined using 'mui' representing degree of membership
+
+OPERATIONS
+  - Let A and B be fuzzy sets with elements x and membership values μA(x) and μB(x).
+  a. Union - A U B. μA∪B(x) = max(μA(x), μB(x))
+  b. Intersection - A ∩ B. μA∩B(x) = min(μA(x), μB(x))
+  c. Complement -  Aᶜ. μAᶜ(x) = 1 − μA(x)
+  d. Difference - A - B. μA−B(x) = min(μA(x), 1 − μB(x))
+
+FUZZY RELATIONS 
+- defined on the Cartesian Product of 2 set
+- represented as R(A×B)
+- contains ordered pairs with membership values
+
+CARTESIAN PRODUCT
+- R = A X B = {((a,b), min(μA(a), μB(b))) | a belongs to A and b to B}
+- matrix of membership values representing all pairwise combinations.
+
+MAX MIN COMPOSITION OF FUZZY RELATIONS
+- μ(a,c) = max[min(μ(a,b), μ(b,c))]
+
+
+
+
+4. LOAD BALANCER
+- process of distributing incoming client requests or workload evenly across a group of servers (also called nodes)
+  a. Avoid overloading single server
+  b. improve response time
+  c. maximize resource utilization
+  d. ensure system availability
+
+TYPES
+a. Round Robin - assign requests to servers in circular order
+b. Random - randomly picks a server for each request
+c. Least Connections - Assigns request to server with few active connections
+
+KEY CONCEPTS
+1. Static LB - predefined strategy. doesn't consider server load. Simple and fast
+2. Dynamic LB - decisions made at real time. using server load, response time
+3. Scalability - to handle inc load by adding more servers
+4. Fault Tolerance

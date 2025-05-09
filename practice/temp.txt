@@ -1,0 +1,1 @@
+MapReduce is a programming model designed to process and generate large datasets efficiently. It works by splitting the data into smaller chunks, which are thes proce
