@@ -7,6 +7,11 @@ from deap import base, creator, tools, algorithms
 POPULATION_SIZE = 10
 GENERATIONS = 5
 
+# def evaluate(individual):
+#     neurons = int(individual[0])
+#     layers = int(individual[1])
+#     loss = train_and_evaluate_ann(neurons, layers)
+#     return (loss,)  # Must return a tuple
 
 # Define evaluation function
 def evaluate(individual):

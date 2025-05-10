@@ -70,3 +70,68 @@ KEY CONCEPTS
 2. Dynamic LB - decisions made at real time. using server load, response time
 3. Scalability - to handle inc load by adding more servers
 4. Fault Tolerance
+
+
+
+5. Genetic Algo (Coconut Milk)
+- computational search tech. inspired by natural selection and genetics
+- it's used to find the optimal or near optimal solutions by simulating evolutionary process of individuals in a population
+- Here we use GA to find optimal parameters for the NN 
+- goal to find the optimal GA configuration that leads to most accurate ANN
+
+
+
+6. Clonal Algo
+- biological inspired Artificial Immune System
+- mimics how human immune system responds to antigens by selecting, cloning, and mutating high-affinity antibodies
+- mainly used for optimization problems and pattern recognition
+- Antibodies = Candidate solutions
+- Affinity = Fitness
+- Cloning = Better solutions (antibodies with high fitness)
+- Hypermutation = cloned bodies mutated for better solution
+- Selection = After mutation, best candidates are selected for next generation
+
+
+
+7. DEAP Algo
+- Distributed Evolutionary Algo
+- python library for implementing of evolutionary algo 
+- CONCEPTS
+  1. Evolutionary Algo - optimization algo inspired by biological evolution
+  2. Components
+    - individuals = Soln to problems
+    - population = collection of individuals
+    - fitness function = evaluates how good a solution is
+    - selection = choose individuals for reproduction
+    - crossover = combine genetic material from parents
+    - mutation = random changes to maintain diversity
+  3. Distributed Computing
+  
+
+
+
+8. Java 
+
+
+
+
+9. Map Reduce
+- First read all the csv data. reader = csv.DictReader(file) and now read row from reader and append
+- Mapper - that is take the day column and extract year from it, also extract the temperature from temperature and conver it to float. Return (year, temp)
+- Reducer - create dictionary storing - {year: (sum, count)} and return it
+- now call mapper 
+- now call reducer
+- now calculate avg_temp per year and create dict of it
+- now take the min and max values from the above dict
+
+
+
+
+10. Ant Colony
+- ACO = inspired from ants to find the shortest path between their colony and food sources
+- used to solve Traveling Salesman Problem
+- CONCEPTS
+  - pheromone trails - help ants choose pahts. high ==> more attractive
+  - Heuristic info - inverse of distance (close city ==> more attractive)
+  - Ants build solutions probabilistically using a balance of pheromone and heuristics
+  - After each generation, pheromone are updated based on the quality of solutions (shorted = better)
