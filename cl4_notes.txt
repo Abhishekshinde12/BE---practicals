@@ -88,7 +88,7 @@ $limit (limiting results)
 
 
 
-3.
+3. Matrix Multiplication
 
 
 
@@ -117,6 +117,35 @@ $limit (limiting results)
 - now get the deceased females records
 - and apply value_counts on the Pclass - to get count as per passenger class
 - and return avg_age and the female_passenger result
+
+
+
+
+6,7,8 - POWER BI
+- Get Data Button - to load data 
+- Data Tab on the right - to show the loaded data
+- Transform Data - to transform the data - define data before loading into the data model. POWER QUERY EDITOR
+  - After Transforming data - click close and apply to save the changes
+
+- Data View 
+  - present on left Tab
+  - Display actual data loaded
+  - even here we can do different type of editing 
+  - DAX
+    - Data Analysis Expressions
+    - formula language in powerBI to create calculations in data models
+    - eg.Total Sales = SUM(Sales[Amount])
+    - create total sales Table by taking the sum of the sales[amount]
+    - we can apply formula or function here
+
+- Model View
+  - to visualize table relationships
+  - manage tables and organize tables
+  - drag and drop relationships
+
+- Report View
+  - actual graphs and everything are present here
+
 
 
 
