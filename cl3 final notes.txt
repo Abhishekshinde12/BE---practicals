@@ -1,0 +1,179 @@
+1. RPC
+- protocol allow to invoke a procedure (function) on another computer/server
+- allow executing a function on remote server as if it were local
+- based on client server model
+- client sends service and the server provides it
+- client send an int. request is sent over network to server using RPC. server calculates factorial. server returns the result. client receives and prints result
+
+
+
+
+2. RMI
+- allow an object running in one JVM to invoke methods on an object running on another JVM
+- typically on different physical machines
+- object oriented and Java based
+- defines a remote interface. implement a remote object on server that defines the method. start the RMI registry and bind the object. client looks up remote object using registry. client calls the function
+- In RMI the actual object is transferred from the server to the client
+- Unlike RPC where parameters are transferred from client to server
+
+RUNNING THE CODE
+  a. python -m Pyro4.naming - running the pyro4 server
+  b. then run the server.py
+  c. then run the client.py
+
+
+
+
+3. FUZZY SETS
+- normal set := element either belongs or not belong
+- it's a set without sharp boundary
+- allows partial membership of an element belonging to the set. this helps to model partial truth
+- value between (0,1) (not a memeber, full member)
+- membership function defined using 'mui' representing degree of membership
+- eg. A(x) = {(x1, 0.5), (x2, 0.7), (x3, 0.1)}
+
+OPERATIONS
+  - Let A and B be fuzzy sets with elements x and membership values μA(x) and μB(x).
+  a. Union - A U B. μA∪B(x) = max(μA(x), μB(x))
+  b. Intersection - A ∩ B. μA∩B(x) = min(μA(x), μB(x))
+  c. Complement -  Aᶜ. μAᶜ(x) = 1 − μA(x)
+  d. Difference - A - B. μA−B(x) = min(μA(x), 1 − μB(x))
+
+FUZZY RELATIONS 
+- generalizes the concept of relation between 2 fuzzy sets
+- in crisp logic, a relation is a subset of cartesian product A X B. in fuzzy logic, it assigns a degree of relationship between elements of 2 sets
+- defined on the Cartesian Product of 2 set
+- represented as R(A×B)
+- contains ordered pairs with membership values
+
+CARTESIAN PRODUCT
+- R = A X B = {((a,b), min(μA(a), μB(b))) | a belongs to A and b to B}
+- matrix of membership values representing all pairwise combinations.
+
+MAX MIN COMPOSITION OF FUZZY RELATIONS
+- std. method to combine 2 fuzzy relations
+- μ(a,c) = max[min(μ(a,b), μ(b,c))]
+
+
+
+
+4. LOAD BALANCER
+- process of distributing incoming client requests or workload evenly across a group of servers (also called nodes)
+  a. Avoid overloading single server
+  b. improve response time
+  c. maximize resource utilization
+  d. ensure system availability
+
+TYPES
+  a. Round Robin - assign requests to servers in circular order
+  b. Random - randomly picks a server for each request
+  c. Least Connections - Assigns request to server with few active connections
+
+KEY CONCEPTS
+  1. Static LB - predefined strategy. doesn't consider server load. Simple and fast
+  2. Dynamic LB - decisions made at real time. using server load, response time
+  3. Scalability - to handle inc load by adding more servers
+  4. Fault Tolerance
+
+
+
+
+5. Genetic Algo (Coconut Milk)
+- computational search tech. 
+- inspired by natural selection and genetics.
+- it's used to find the optimal or near optimal solutions by simulating evolutionary process of individuals in a population
+- Here we use GA to find optimal parameters for the NN 
+- goal to find the optimal GA configuration that leads to most accurate ANN
+
+  - Individual(Chromosome) = encode 1 candidate solution, often as string or bits
+  - Gene = single element of chromosome (eg. one bit, one real value)
+  - Population = collection of individuals. intialized randomly at start of size N
+  - Fitness Function = evaluates and assign fitness score to each individual, indicating how good that solution is
+  - Selection = choose parents from current population, biased towards high fitness
+  - Genetic Operators
+    a. CrossOver - combine 2 parent chromosomes to produce one or more offspring
+    b. Mutation - randomly tweak genes in an offspring to maintain diversity
+
+
+
+
+6. Clonal Algo
+- inspired by Biological Immune System
+- mimics how human immune system responds to antigens by selecting, cloning, and mutating high-affinity antibodies
+- mainly used for optimization problems and pattern recognition
+- Antibodies = Candidate solutions
+- Affinity = Fitness
+- Cloning = Better solutions (antibodies with high fitness)
+- Hypermutation = cloned bodies mutated for better solution
+- Selection = After mutation, best candidates are selected for next generation
+
+- Algo Overview
+  a. Initialize population of N antibodies, randomly
+  b. Affinity Evaluation - how good the solution is
+  c. Selection - select top n antibodies with highes affinity for cloning
+  d. Cloning - produce clones of selected antibody
+  e Hypermutation applied to each clone
+
+
+
+
+7. DEAP Algo
+- Distributed Evolutionary Algo
+- python library for implementing of evolutionary algo 
+- CONCEPTS
+  1. Evolutionary Algo - optimization algo inspired by biological evolution
+  2. Components of GA
+    - individuals = Soln to problems
+    - population = collection of individuals
+    - fitness function = evaluates how good a solution is
+    - selection = choose individuals for reproduction
+    - crossover = combine genetic material from parents
+    - mutation = random changes to maintain diversity
+  3. Distributed Computing
+
+- CORE IDEAS OF DEAP
+  a. Modular Toolbox Design - register all your problem's components.
+  b. Creator-Toolbox Pattern
+    - Creator = dynamically creates new classes (eg. FitnessMax, Individual). to reduce boilerplate
+    - Toolbox - holds references to how to initialize individuals, evaluate fitness, apply crossover/mutation, select parents
+  
+
+
+
+8. Java 
+- RMI used here
+- HotelServer.java -
+- HotelClient.java - Connect to RMI registry. lookup remote stub under the name "HotelService"
+- HotelInterface.java - declare remote interface for RMI service. client use this interface to invoke methods on server stub
+
+RUNNING THE CODE
+- first ensure all files in same directory
+  1. javac *.java - compile all classes
+  2. java HotelServer - to start server
+  3. java HotelClient - to start client
+
+
+
+
+9. Map Reduce
+- First read all the csv data. reader = csv.DictReader(file) and now read row from reader and append
+- Mapper - that is take the day column and extract year from it, also extract the temperature from temperature and conver it to float. Return (year, temp)
+- Reducer - create dictionary storing - {year: (sum, count)} and return it
+- now call mapper 
+- now call reducer
+- now calculate avg_temp per year and create dict of it
+- now take the min and max values from the above dict
+
+
+
+
+10. Ant Colony
+- ACO = inspired from ants to find the shortest path between their colony and food sources
+- used to solve Traveling Salesman Problem
+- CONCEPTS
+  - pheromone trails - help ants choose pahts. high ==> more attractive
+  - Heuristic info - inverse of distance (close city ==> more attractive)
+  - Ants build solutions probabilistically using a balance of pheromone and heuristics
+  - After each generation, pheromone are updated based on the quality of solutions (shorted = better)
+
+
